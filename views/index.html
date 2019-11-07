@@ -66,7 +66,32 @@
           </p>
           <section id="customerinfo">
             <form>
-              
+              <p>
+                <label for="fullname">Your name</label><br>
+                <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Lastname">
+              </p>
+              <p>
+                <label for="emailadress">Email</label><br>
+                <input type="email" id="emailadress" name="email" required="required" placeholder="E-mail adress">
+              </p>
+              <p>
+                <label for="street">Street</label><br>
+                <input type="text" id="street" name="str" required="required" placeholder="Street name">
+              </p>
+              <p>
+                <label for="houseno"> House number</label><br>
+                <input type="number" id="houseno" name="hno" required="required" placeholder="House number">
+              </p>
+              <p>
+                <label for="payment">Payment method</label><br>
+                <select id="payment" name="paym" >
+                    <option selected="selected">PayPal</option>
+                    <option>Credit Card</option>
+                    <option>Klarna</option>
+                    <option>Swish</option>
+                    <option>Cash</option>
+                </select>
+              </p>
             </form>
           </section>
         </section>
