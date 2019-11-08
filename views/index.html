@@ -3,13 +3,14 @@
     <head>
         <title>Best Burgers in town!</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css\style.css">
     </head>
     <body>
       <main>
         <h1>
           Welcome to BürgerOnline!
         </h1>
-        <section>
+        <section id="burgerselection">
           <h2>
             Burger selection:
           </h2>
@@ -35,21 +36,21 @@
                   <ul>
                     <li>One of our tastiest ones!</li>
                     <li>Contains 750 kCal</li>
-                    <li>Contains gluten</li>
+                    <li>Contains <span class="allergenes">gluten</span></li>
                   </ul>
                 </td>
                 <td>
                   <ul>
                     <li>One of our crispiest ones!</li>
                     <li>Contains 550 kCal</li>
-                    <li>Contains gluten and lactose</li>
+                    <li>Contains <span class="allergenes">gluten</span> and <span class="allergenes">lactose</span></li>
                   </ul>
                 </td>
                 <td>
                   <ul>
                     <li>One of our healthiest ones ones!</li>
                     <li>Contains 600 kCal</li>
-                    <li>Free from allergenes</li>
+                    <li><span class="allergenes">Free from</span> allergenes</li>
                   </ul>
                 </td>
               </tr>
@@ -57,7 +58,7 @@
 
           </table>
         </section>
-        <section>
+        <section id="provideinfo">
           <h2>
             Customer information:
           </h2>
