@@ -5,6 +5,9 @@
         <meta charset="utf-8"/>
       <!--<link rel="stylesheet" type="text/css" href="css\reset.css">-->
         <link rel="stylesheet" type="text/css" href="css\style.css">
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="js/js_script.js"></script>
+        <script src="js/vue_script.js"></script>
     </head>
     <body>
       <main>
@@ -23,46 +26,35 @@
               Here you can choose which burger you want...
             </p>
           </section>
-          <table>
-            <thead>
-              <tr>
-                <th>Bacon Burger Deluxe</th>
-                <th>Crispy Chicken Burger </th>
-                <th>Vegan Excitement Burger</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://live.staticflickr.com/4126/4984075705_c83583e4ed_b.jpg" alt="Bacon Burger Deluxe" title="Bacon Burger" width=300></td>
-                <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolqBQKNktIxmDdI166YOF-bOgTSoCH2In9zvM4XVnughdWpEC&s" alt="Crispy Chicken Burger" title="Chicken Burger" width=300></td>
-                <td><img src="https://live.staticflickr.com/65535/32789207957_06d155b6f9_b.jpg" alt="Vegan Excitement Burger" title="Vegan Burger" width=300></td>
-              </tr>
-              <tr>
-                <td>
-                  <ul>
-                    <li>One of our tastiest ones!</li>
-                    <li>Contains 750 kCal</li>
-                    <li>Contains <span class="allergenes">gluten</span></li>
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    <li>One of our crispiest ones!</li>
-                    <li>Contains 550 kCal</li>
-                    <li>Contains <span class="allergenes">gluten</span> and <span class="allergenes">lactose</span></li>
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    <li>One of our healthiest ones ones!</li>
-                    <li>Contains 600 kCal</li>
-                    <li><span class="allergenes">Free from</span> allergenes</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-
-          </table>
+          <div class="wrapperburger">
+            <div class="burgerl">
+                <p class="burgerheader">Bacon Burger Deluxe</p>
+                <img src="https://live.staticflickr.com/4126/4984075705_c83583e4ed_b.jpg" alt="Bacon Burger Deluxe" title="Bacon Burger" width=300>
+                <ul class="burgerdetails">
+                  <li>One of our tastiest ones!</li>
+                  <li>Contains 750 kCal</li>
+                  <li>Contains <span class="allergenes">gluten</span></li>
+                </ul>
+            </div>
+            <div class="burgerm">
+                <p class="burgerheader">Crispy Chicken Burger </p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolqBQKNktIxmDdI166YOF-bOgTSoCH2In9zvM4XVnughdWpEC&s" alt="Crispy Chicken Burger" title="Chicken Burger" width=300>
+                <ul class="burgerdetails">
+                  <li>One of our crispiest ones!</li>
+                  <li>Contains 550 kCal</li>
+                  <li>Contains <span class="allergenes">gluten</span> and <span class="allergenes">lactose</span></li>
+                </ul>
+            </div>
+            <div class="burgerr">
+                <p class="burgerheader">Vegan Excitement Burger</p>
+                <img src="https://live.staticflickr.com/65535/32789207957_06d155b6f9_b.jpg" alt="Vegan Excitement Burger" title="Vegan Burger" width=300>
+                <ul class="burgerdetails">
+                  <li>One of our healthiest ones ones!</li>
+                  <li>Contains 600 kCal</li>
+                  <li><span class="allergenes">Free from</span> allergenes</li>
+                </ul>
+            </div>
+          </div>
         </section>
         <section id="provideinfo">
           <h2>
