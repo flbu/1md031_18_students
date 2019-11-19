@@ -6,8 +6,8 @@
       <!--<link rel="stylesheet" type="text/css" href="css\reset.css">-->
         <link rel="stylesheet" type="text/css" href="css\style.css">
         <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="js/js_script.js"></script>
-        <script src="js/vue_script.js"></script>
+      <!--  <script src="js/js_script.js" defer></script>-->
+        <script src="js/vue_script.js" defer></script>
     </head>
     <body>
       <main>
@@ -27,6 +27,7 @@
             </p>
           </section>
           <div class="wrapperburger">
+            <!--
             <div class="burgerl">
                 <p class="burgerheader">Bacon Burger Deluxe</p>
                 <img src="https://live.staticflickr.com/4126/4984075705_c83583e4ed_b.jpg" alt="Bacon Burger Deluxe" title="Bacon Burger" width=300>
@@ -36,15 +37,19 @@
                   <li>Contains <span class="allergenes">gluten</span></li>
                 </ul>
             </div>
-            <div class="burgerm">
-                <p class="burgerheader">Crispy Chicken Burger </p>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolqBQKNktIxmDdI166YOF-bOgTSoCH2In9zvM4XVnughdWpEC&s" alt="Crispy Chicken Burger" title="Chicken Burger" width=300>
-                <ul class="burgerdetails">
-                  <li>One of our crispiest ones!</li>
-                  <li>Contains 550 kCal</li>
-                  <li>Contains <span class="allergenes">gluten</span> and <span class="allergenes">lactose</span></li>
-                </ul>
+            -->
+            <div id="showmenu" class="showburger">
+                <div class="singleburger" v-for="burger in menuList">
+                  <p class="burgerheader">{{burger.name}}</p>
+                  <img :src="burger.imgURL" alt="Crispy Chicken Burger" title="Chicken Burger" width=300>
+                  <ul class="burgerdetails">
+                    <li>One of our crispiest ones!</li>
+                    <li >{{burger.kcalInfo}}</li>
+                    <li >{{burger.allergInfo()}}</li>
+                  </ul>
+                </div>
             </div>
+            <!--
             <div class="burgerr">
                 <p class="burgerheader">Vegan Excitement Burger</p>
                 <img src="https://live.staticflickr.com/65535/32789207957_06d155b6f9_b.jpg" alt="Vegan Excitement Burger" title="Vegan Burger" width=300>
@@ -54,6 +59,7 @@
                   <li><span class="allergenes">Free from</span> allergenes</li>
                 </ul>
             </div>
+          -->
           </div>
         </section>
         <section id="provideinfo">
@@ -100,8 +106,15 @@
                 <input type="radio" id="noinfo" value="noinfo" name="gender" required="required" checked="checked"><br>
               </p>
             </form>
-            <button type="submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" width=20> Press here to finish order!</button>
+            <button id="submit" type="submit" v-on:click="markDone()"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" width=20> Press here to finish order!</button>
           </section>
+        </section>
+        <section id="orderdetails">
+          <h2>Order Details:<h2>
+            <div id="showinfo">
+
+
+            </div>
         </section>
       </main>
         <hr>
