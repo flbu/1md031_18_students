@@ -1,0 +1,111 @@
+/*stylesheet
+*/
+
+body{
+  font-family: arial, sans-serif;
+  font-size: 30px;
+  color: dimgrey;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75vw;
+}
+
+@media screen and (max-width:800px){
+
+body{
+  font-family: arial, sans-serif;
+  font-size: 20px;
+  color: dimgrey;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75vw;
+}
+}
+label{
+  font-style: italic;
+  font-size: 0.5em;
+}
+
+.allergenes{
+  font-weight: bold;
+}
+
+#burgerselection{
+  background-color: black;
+  color: white;
+  margin-top: 1em;
+  border: 0.1em dotted white;
+}
+
+#selectionheader{
+  margin: 0.5em;
+}
+
+button:hover, input[type="radio"]{
+  background-color: mediumseagreen;
+  cursor: pointer;
+}
+
+.wrapperburger{
+  display: grid;
+  width: auto;
+  grid-gap: 1em;
+  grid-template-columns:30% 30% 30%;
+  background-color: black;
+  color white;
+  padding: 0.5em;
+}
+
+.burgerdetails{
+  font-size: 0.7em;
+}
+
+.burgerheader{
+  font-size: 0.8em;
+  font-weight: bold;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.singleburger{
+  display: inline;
+}
+
+button[type="submit"]{
+  margin: 2em 0;
+}
+
+#provideinfo{
+  border: 0.1px dotted black;
+  padding: 0 0.5em;
+  margin-top: 1em;
+}
+
+#homepageheader img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  opacity: 80;
+}
+
+#homepageheader h1{
+  font-size: 2em;
+  position: absolute;
+  margin: 0.5em;
+  color: lightgrey;
+  padding: 0.5em;
+}
+
+#homepageheader{
+  height: 8em;
+  overflow: hidden;
+}
+
+#showinfo ul{
+  font-size: 0.5em;
+  list-style:none;
+}

@@ -5,7 +5,10 @@
         <meta charset="utf-8"/>
       <!--<link rel="stylesheet" type="text/css" href="css\reset.css">-->
         <link rel="stylesheet" type="text/css" href="css\style.css">
-        <script src="https://vuejs.org/js/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/deli-very.css">
+        <script src="/socket.io/socket.io.js" defer></script>
+        <!--   <script src="js/deli-very.js" defer></script> -->
+        <script src="js/vue.js"></script>
       <!--  <script src="js/js_script.js" defer></script>-->
         <script src="js/vue_script.js" defer></script>
     </head>
@@ -15,7 +18,7 @@
           <h1>
             Welcome to BürgerOnline!
           </h1>
-          <img src="https://cdn.pixabay.com/photo/2016/11/19/12/44/burgers-1839090_960_720.jpg" alt="Burger patty on open flame" title="Burger grill">
+          <img src="img/flames.jpg" alt="Burger patty on open flame" title="Burger grill">
         </section>
         <section id="burgerselection">
           <section id="selectionheader">
@@ -26,7 +29,6 @@
               Here you can choose which burger you want...
             </p>
           </section>
-          <div class="wrapperburger">
             <!--
             <div class="burgerl">
                 <p class="burgerheader">Bacon Burger Deluxe</p>
@@ -38,15 +40,16 @@
                 </ul>
             </div>
             -->
-            <div id="showmenu" class="showburger">
+            <div id="showmenu" class="wrapperburger">
                 <div class="singleburger" v-for="burger in menuList">
                   <p class="burgerheader">{{burger.name}}</p>
-                  <img :src="burger.imgURL" alt="Crispy Chicken Burger" title="Chicken Burger" width=300>
+                  <img :src="burger.imgURL" width=250>
                   <ul class="burgerdetails">
                     <li>One of our crispiest ones!</li>
                     <li >{{burger.kcalInfo}}</li>
                     <li >{{burger.allergInfo()}}</li>
                   </ul>
+                  <input class="burgercheck" type="checkbox" name="burgerlist" :value="burger.name">Add {{burger.name}} to my order!<br>
                 </div>
             </div>
             <!--
@@ -60,7 +63,6 @@
                 </ul>
             </div>
           -->
-          </div>
         </section>
         <section id="provideinfo">
           <h2>
@@ -80,14 +82,6 @@
                 <input type="email" id="emailadress" name="email" required="required" placeholder="E-mail adress">
               </p>
               <p>
-                <label for="street">Street</label><br>
-                <input type="text" id="street" name="str" required="required" placeholder="Street name">
-              </p>
-              <p>
-                <label for="houseno"> House number</label><br>
-                <input type="number" id="houseno" name="hno" required="required" placeholder="House number">
-              </p>
-              <p>
                 <label for="payment">Payment method</label><br>
                 <select id="payment" name="paym" >
                     <option selected="selected">PayPal</option>
@@ -97,22 +91,33 @@
                     <option>Cash</option>
                 </select>
               </p>
-              <p>
+              <form id="genderselect">
                 <label for="male">Male</label>
                 <input type="radio" id="male" value="male" name="gender" required="required"><br>
                 <label for="female">Female</label>
                 <input type="radio" id="female" value="female" name="gender" required="required"><br>
                 <label for="male">Do not wish to provide</label>
                 <input type="radio" id="noinfo" value="noinfo" name="gender" required="required" checked="checked"><br>
-              </p>
+              </form>
             </form>
-            <button id="submit" type="submit" v-on:click="markDone()"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" width=20> Press here to finish order!</button>
+            <h1> Click in the map on your delivery location! </h1>
+            <div class="view-box">
+              <div id="dots" v-on:click="displayOrder">
+                  <div
+                    v-bind:style="{ left: location.x + 'px', top: location.y + 'px'}">
+                    T
+                  </div>
+              </div>
+            </div>
+            <button id="submit" type="submit" v-on:click="markDone(); addOrder()"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" width=20> Press here to finish order!</button>
           </section>
         </section>
         <section id="orderdetails">
-          <h2>Order Details:<h2>
-            <div id="showinfo">
+            <div id="showinfo" v-if>
+              <h2>Order Details:</h2>
 
+             Name:  {{currDetails.name}}
+             Burger {{}}
 
             </div>
         </section>
