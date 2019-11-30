@@ -131,7 +131,7 @@ function details(){
         console.log("Order placed!");
         this.currDetails = new details();
         console.log(this.currDetails);
-        /*document.getElementById('showinfo').innerHTML=
+        document.getElementById('showinfo').innerHTML=
           "<h2>"+'Order Details:'+"<h2>"+
           "<ul>"+
             "<li>"+'Name: '+ this.currDetails.name+"</li>"+
@@ -139,7 +139,7 @@ function details(){
             "<li>"+'Payment: '+ this.currDetails.payment+"</li>"+
             "<li>"+'Gender: '+ this.currDetails.gender()+"</li>"+
             "<li>"+'Burgers: '+ this.currDetails.burgers()+"</li>"
-         "</ul>"*/
+         "</ul>"
 
 
       },
@@ -154,6 +154,7 @@ function details(){
         socket.emit("addOrder", { orderId: this.getNext(),
                                   details: this.location,
                                   orderItems: this.currDetails.burgers(),
+                                  customerDetails: this.currDetails.name+", "+this.currDetails.email+", "+this.currDetails.payment, 
                                 });
       },    
          
