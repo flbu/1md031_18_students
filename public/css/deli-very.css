@@ -19,7 +19,7 @@
 	cursor: crosshair;
 }
 
-#dots div {
+#dots span {
 	position: absolute;
 	background: black;
 	color: white;
@@ -27,6 +27,7 @@
 	width:20px;
 	height:20px;
 	text-align: center;
+	font-size: 0.7em;
 }
 
 #orderList {

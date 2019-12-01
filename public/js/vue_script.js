@@ -21,18 +21,19 @@ function MenuItem(name, kcal, lact, glut, img) {
     this.imgURL = img;
 }
 
-
-var menu = [
-new MenuItem("BaconBurger", 400,true,true, "img/baconburger.jpg"),
-new MenuItem("Cheeseburger", 350,true,true, "img/chickenburger.jpg"),
-new MenuItem("VeganBurger", 200,false,true, "img/veganburger.jpg"),
-new MenuItem("DoubleCheeseBurger", 400, true, true, "img/chickenburger.jpg")
-]
+function createMenu(food){
+var menu = [];
+for(foodItem of food){
+  menuItem = new MenuItem(foodItem.name, foodItem.kcal, foodItem.lact, foodItem.glut, foodItem.img);
+  menu.push(menuItem);
+}
+return menu;
+}
 
 var vm = new Vue({
   el: '#showmenu',
   data: {
-    menuList: menu
+    menuList: createMenu(food)
     }
 
   })
@@ -108,7 +109,10 @@ function details(){
     data: {
       orders: {},
       location: {},
-      currDetails: {}
+      currDetails: {},
+      clicked: false,
+      mapClicked:false
+
     },
     created: function () {
       socket.on('initialize', function (data) {
@@ -121,13 +125,14 @@ function details(){
     },
     methods: {
       displayOrder: function (event) {
+        this.mapClicked = true;
         var offset = {x: event.currentTarget.getBoundingClientRect().left,
                       y: event.currentTarget.getBoundingClientRect().top};
         this.location= { x: event.clientX - 10 - offset.x,
                    y: event.clientY - 10 - offset.y};
         console.log(this.location.x +"  "+ this.location.y);
         },
-      markDone: function() {
+     /* markDone: function() {
         console.log("Order placed!");
         this.currDetails = new details();
         console.log(this.currDetails);
@@ -140,9 +145,10 @@ function details(){
             "<li>"+'Gender: '+ this.currDetails.gender()+"</li>"+
             "<li>"+'Burgers: '+ this.currDetails.burgers()+"</li>"
          "</ul>"
-
+      	
 
       },
+      */
       getNext: function () {
         var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
           return Math.max(last, next);
@@ -150,13 +156,17 @@ function details(){
         return lastOrder + 1;
       },
       addOrder: function (event) {
+        console.log("Order placed!");
+        this.currDetails = new details();
+        console.log(this.currDetails);
+        this.clicked = true;
         console.log(this.getNext());
         socket.emit("addOrder", { orderId: this.getNext(),
                                   details: this.location,
                                   orderItems: this.currDetails.burgers(),
                                   customerDetails: this.currDetails.name+", "+this.currDetails.email+", "+this.currDetails.payment, 
                                 });
-      },    
+      },        
          
     }
   });

@@ -1,6 +1,7 @@
 /*stylesheet
 */
 
+
 body{
   font-family: arial, sans-serif;
   font-size: 30px;
@@ -54,7 +55,7 @@ button:hover, input[type="radio"]{
   grid-gap: 1em;
   grid-template-columns:30% 30% 30%;
   background-color: black;
-  color white;
+  color: white;
   padding: 0.5em;
 }
 
@@ -109,3 +110,4 @@ button[type="submit"]{
   font-size: 0.5em;
   list-style:none;
 }
+

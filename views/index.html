@@ -6,6 +6,7 @@
       <!--<link rel="stylesheet" type="text/css" href="css\reset.css">-->
         <link rel="stylesheet" type="text/css" href="css\style.css">
         <link rel="stylesheet" type="text/css" href="css/deli-very.css">
+        <script type="text/javascript" src="food.js"></script>
         <script src="/socket.io/socket.io.js" defer></script>
         <!--   <script src="js/deli-very.js" defer></script> -->
         <script src="js/vue.js"></script>
@@ -103,27 +104,30 @@
             <h1> Click in the map on your delivery location! </h1>
             <div class="view-box">
               <div id="dots" v-on:click="displayOrder">
-                  <div
+                  <span v-if="mapClicked"
                     v-bind:style="{ left: location.x + 'px', top: location.y + 'px'}">
                     T
-                  </div>
+                  </span>
               </div>
             </div>
-            <button id="submit" type="submit" v-on:click="markDone(); addOrder()"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" width=20> Press here to finish order!</button>
+            <button id="submit" type="submit" v-on:click="addOrder()"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" width=20> Press here to finish order!</button>
           </section>
         </section>
         <section id="orderdetails">
-            <div id="showinfo" v-if>
+            <div id="showinfo" v-if="clicked">
               <h2>Order Details:</h2>
 
-             Name:  {{currDetails.name}}
-             Burger: {{currDetails.burgers}}
+                Name: {{currDetails.name}} <br>
+                Burgers: {{currDetails.burgers().join(", ") }} <br>
+                Mailadress: {{currDetails.email}} <br>
+                Gender: {{currDetails.gender()}} <br>
+                Payment: {{currDetails.payment}} <br>
 
             </div>
         </section>
       </main>
         <hr>
-        <footer>
+        <footer id=footer>
           &copy by Florian Bürger 2019
         </footer>
     </body>
