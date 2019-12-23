@@ -18,7 +18,7 @@
       </div>
     </div>
     <div id="dots">
-        <span v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+        <span id="dispatcherdots" v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
           {{ key }}
         </span>
     </div>
